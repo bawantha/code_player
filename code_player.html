@@ -1,4 +1,5 @@
 <!-- this is alike web page of www.jsbin.com -->
+<!DOCTYPE HTML SYSTEM>
 <html>
     <head>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> 
@@ -85,12 +86,15 @@
                 Hello World
             </textarea>
 
-            <iframe id="outputPannel" class="pannel"></iframe>
+            <iframe id="outputPannel" class="pannel">
+                sdas
+            </iframe>
 
         </div>
 
 
         <script type="text/javascript">
+        $(document).ready(function(){
             $(".toggleButton").hover(
                 function(){
                 $(this).addClass("highlightedButton");
@@ -104,10 +108,13 @@
                 $(this).removeClass("highlightedButton");
             })
 
-            $("textarea").height($(document).height()-$("#header").height());
+            $("textarea").height($(window).height()-$("#header").height());
             $(".pannel").height($(document).height()-$("#header").height());
 
             $(".pannel").width($(document).width()/2-10);
-            </script>
+
+            $("iframe").contents().find('body').html($("#htmlPannel").val());
+        });
+        </script>
     </body>
 </html>

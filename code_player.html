@@ -52,6 +52,19 @@
             .highlightedButton{
                 background-color: grey;
             }
+            textarea{
+                width: 50%;
+                resize: none;
+
+            }
+            .pannel{
+                float: left;
+                width: 50%;
+                border-top: none;
+                border-left: none;
+                border-color: gray;
+            }
+
         </style>
     </head>
     <body>
@@ -66,6 +79,17 @@
                 <div class="toggleButton active" id="output">Output</div>
             </div>
         </div>
+
+        <div id="bodyContainer">
+            <textarea id="htmlPannel" class="pannel">
+                Hello World
+            </textarea>
+
+            <iframe id="outputPannel" class="pannel"></iframe>
+
+        </div>
+
+
         <script type="text/javascript">
             $(".toggleButton").hover(
                 function(){
@@ -74,6 +98,16 @@
                 function(){
                     $(this).removeClass("highlightedButton");
                 });
-        </script>
+
+            $(".toggleButton").click(function(){
+                $(this).toggleClass("active");
+                $(this).removeClass("highlightedButton");
+            })
+
+            $("textarea").height($(document).height()-$("#header").height());
+            $(".pannel").height($(document).height()-$("#header").height());
+
+            $(".pannel").width($(document).width()/2-10);
+            </script>
     </body>
 </html>
